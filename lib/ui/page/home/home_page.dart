@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/domain/model/days_ui_model.dart';
 import 'package:weather_app/domain/model/item_ui_model.dart';
+import 'package:weather_app/ui/component/days_forecast.dart';
 import 'package:weather_app/ui/component/forecast_summary.dart';
 import 'package:weather_app/ui/component/header.dart';
 import 'package:weather_app/ui/component/toolbar.dart';
@@ -45,6 +47,31 @@ class _HomePageState extends State<HomePage> {
                   ItemUiModel(),
                   ItemUiModel(),
                 ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: UiKitDaysForecast(
+                  data: [
+                    DaysUiModel('', [
+                      ItemUiModel(),
+                      ItemUiModel(),
+                      ItemUiModel(),
+                      ItemUiModel(),
+                    ]),
+                    DaysUiModel('', [
+                      ItemUiModel(),
+                      ItemUiModel(),
+                      ItemUiModel(),
+                      ItemUiModel(),
+                    ]),
+                    DaysUiModel('', [
+                      ItemUiModel(),
+                      ItemUiModel(),
+                      ItemUiModel(),
+                      ItemUiModel(),
+                    ]),
+                  ]
+                ),
               )
             ],
           ),

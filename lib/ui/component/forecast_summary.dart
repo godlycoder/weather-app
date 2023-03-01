@@ -29,7 +29,7 @@ class UiKitForecastSummary extends StatelessWidget {
       height: 200,
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(10),
           color: Colors.black38
       ),
       child: const UiKitItemForecast(),
