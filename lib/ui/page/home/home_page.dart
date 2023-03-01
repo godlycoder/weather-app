@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/ui/component/forcast_summary.dart';
 import 'package:weather_app/ui/component/header.dart';
 import 'package:weather_app/ui/component/toolbar.dart';
 
@@ -35,7 +36,11 @@ class _HomePageState extends State<HomePage> {
               Padding(
                 padding: EdgeInsets.all(20),
                 child: UiKitHeader(),
-              )
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 20),
+                child: UiKitForecastSummary(),
+              ),
             ],
           ),
         )

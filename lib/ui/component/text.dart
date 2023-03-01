@@ -18,7 +18,8 @@ class UiKitText extends StatelessWidget {
       style: TextStyle(
         fontSize: type?.size,
         fontWeight: type?.weight,
-        color: color
+        color: color,
+        fontStyle: type?.italic
       ),
     );
   }
@@ -41,9 +42,11 @@ enum UiKitTextType {
   subtitle3(10, FontWeight.w400),
   caption1(14, FontWeight.w300),
   caption2(12, FontWeight.w300),
-  caption3(10, FontWeight.w300);
+  caption3(10, FontWeight.w300),
+  specialCaption(24, FontWeight.w300, italic: FontStyle.italic);
 
-  const UiKitTextType(this.size, this.weight);
+  const UiKitTextType(this.size, this.weight, {this.italic});
   final double size;
   final FontWeight weight;
+  final FontStyle? italic;
 }
