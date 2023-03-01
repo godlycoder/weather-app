@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/ui/component/forcast_summary.dart';
+import 'package:weather_app/domain/model/item_ui_model.dart';
+import 'package:weather_app/ui/component/forecast_summary.dart';
 import 'package:weather_app/ui/component/header.dart';
 import 'package:weather_app/ui/component/toolbar.dart';
 
@@ -32,15 +33,19 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Colors.transparent,
           appBar: UiKitToolbar(),
           body: ListView(
-            children: const [
-              Padding(
+            children: [
+              const Padding(
                 padding: EdgeInsets.all(20),
                 child: UiKitHeader(),
               ),
-              Padding(
-                padding: EdgeInsets.only(top: 20),
-                child: UiKitForecastSummary(),
-              ),
+              UiKitForecastSummary(
+                data: [
+                  ItemUiModel(),
+                  ItemUiModel(),
+                  ItemUiModel(),
+                  ItemUiModel(),
+                ],
+              )
             ],
           ),
         )
