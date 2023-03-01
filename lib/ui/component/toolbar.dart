@@ -11,22 +11,17 @@ class UiKitToolbar extends AppBar {
   Color? get shadowColor => Colors.transparent;
 
   @override
-  Widget? get title => Row(
+  Widget? get title => Column(
     crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      const Icon(Icons.location_on_outlined, size: 25),
-      Padding(
-        padding: const EdgeInsets.only(left: 10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            UiKitText('Bandung', type: UiKitTextType.header2),
-            UiKitText('Thursday, 16 Mei 2022', type: UiKitTextType.caption1)
-          ],
-        ),
-      )
+    children: const [
+      UiKitText('Selamat Pagi Bani', type: UiKitTextType.header3),
+      UiKitText('Bandung 23°C', type: UiKitTextType.caption1)
     ],
   );
+
+  @override
+  // TODO: implement centerTitle
+  bool? get centerTitle => false;
 
   @override
   List<Widget>? get actions => [

@@ -8,18 +8,7 @@ class UiKitHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(
-          child: Column(
-            children: [
-              UiKitText('Selamat Pagi', type: UiKitTextType.header2)
-            ],
-          )
-        ),
-        Expanded(
-          child: Column(
-            children: [],
-          )
-        )
+
       ],
     );
   }

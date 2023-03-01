@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Colors.transparent,
           appBar: UiKitToolbar(),
           body: ListView(
-            children: [
+            children: const [
               Padding(
                 padding: EdgeInsets.all(20),
                 child: UiKitHeader(),
