@@ -15,7 +15,7 @@ class UiKitDaysForecast extends StatelessWidget {
       children: [
         const UiKitText(
           '5 Days Forecast',
-          type:UiKitTextType.title1,
+          type:UiKitTextType.header2,
           color: Colors.white
         ),
         ListView.builder(
@@ -35,29 +35,33 @@ class UiKitDaysForecast extends StatelessWidget {
 
   Widget itemDays(DaysUiModel data) {
     return Container(
+      padding: const EdgeInsets.symmetric(vertical: 10),
       width: double.maxFinite,
-      height: 100,
+      height: 110,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
           color: Colors.black38
       ),
       child: Row(
         children: [
-          const Padding(
-            padding: EdgeInsets.all(15),
-            child: UiKitText('Thurs\n03/03', type: UiKitTextType.subtitle1, color: Colors.white),
+          Padding(
+            padding: const EdgeInsets.all(15),
+            child: UiKitText(data.date, type: UiKitTextType.subtitle1, color: Colors.white),
           ),
           Expanded(
-            child: Column(
-              children: [
-                Expanded(child: Container()),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: data.items.map((e) => const UiKitItemForecast(type: UiKitItemForecastType.small)).toList(),
-                ),
-                Expanded(child: Container()),
-              ],
-            )
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: data.items.length,
+              itemBuilder: (_, index) {
+                return Padding(
+                  padding: const EdgeInsets.only(left: 8),
+                  child: UiKitItemForecast(
+                      type: UiKitItemForecastType.small,
+                      data: data.items[index]
+                  ),
+                );
+              },
+            ),
           )
         ],
       ),

@@ -32,7 +32,7 @@ class UiKitForecastSummary extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           color: Colors.black38
       ),
-      child: const UiKitItemForecast(),
+      child: UiKitItemForecast(data: data),
     );
   }
 }

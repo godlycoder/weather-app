@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/domain/model/item_ui_model.dart';
 import 'package:weather_app/ui/component/text.dart';
 
 class UiKitHeader extends StatelessWidget {
-  const UiKitHeader({Key? key}) : super(key: key);
+  final ItemUiModel? model;
+  const UiKitHeader({Key? key, required this.model}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,23 +26,23 @@ class UiKitHeader extends StatelessWidget {
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         UiKitText(
-                            'Wed',
+                            model?.dayName.toUpperCase() ?? '',
                             type: UiKitTextType.title1,
                             color: Colors.white
                         ),
                         UiKitText(
-                            '02/03/23',
+                            model?.date ?? '',
                             type: UiKitTextType.caption1,
                             color: Colors.white
                         ),
                       ],
                     ),
-                    const Expanded(
+                    Expanded(
                       child: Center(
                         child: UiKitText(
-                            'Rainy',
+                            model?.typeCast ?? '',
                             type: UiKitTextType.specialCaption,
                             color: Colors.white
                         ),
@@ -56,22 +58,22 @@ class UiKitHeader extends StatelessWidget {
                       itemHeader(
                         Icons.water_drop,
                         'Humidity',
-                        '24'
+                        model?.humidity ?? ''
                       ),
                       itemHeader(
                           Icons.speed,
                           'Pressure',
-                          '24'
+                          model?.pressure ?? ''
                       ),
                       itemHeader(
                           Icons.cloud,
                           'Cloudiness',
-                          '24'
+                          model?.cloud ?? ''
                       ),
                       itemHeader(
                           Icons.wind_power,
                           'Wind',
-                          '24'
+                          model?.wind ?? ''
                       ),
                     ],
                   ),
@@ -84,11 +86,14 @@ class UiKitHeader extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(child: Container()),
-            Image.network(
-              'http://openweathermap.org/img/wn/10d@2x.png',
-              width: 150,
-              height: 150,
-              fit: BoxFit.fill,
+            Visibility(
+              visible: model?.iconUrl != null,
+              child: Image.network(
+                model?.iconUrl ?? '',
+                width: 150,
+                height: 150,
+                fit: BoxFit.fill,
+              )
             )
           ],
         )

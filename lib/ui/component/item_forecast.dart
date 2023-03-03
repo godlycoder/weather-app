@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/domain/model/item_ui_model.dart';
 import 'package:weather_app/ui/component/text.dart';
 
 class UiKitItemForecast extends StatelessWidget {
   final UiKitItemForecastType? type;
+  final ItemUiModel data;
 
-  const UiKitItemForecast({Key? key, this.type = UiKitItemForecastType.medium }) : super(key: key);
+  const UiKitItemForecast({Key? key, this.type = UiKitItemForecastType.medium, required this.data }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,14 +17,14 @@ class UiKitItemForecast extends StatelessWidget {
 
     return Column(
       children: [
-        UiKitText('00:00', type: textType, color: Colors.white),
+        UiKitText(data.hour, type: textType, color: Colors.white),
         Image.network(
-          'http://openweathermap.org/img/wn/10d@2x.png',
+          data.iconUrl,
           width: iconSize,
           height: iconSize,
           fit: BoxFit.fill,
         ),
-        UiKitText('Rainy', type: textType, color: Colors.white),
+        UiKitText('${data.temp}°C', type: textType, color: Colors.white),
       ],
     );
   }
