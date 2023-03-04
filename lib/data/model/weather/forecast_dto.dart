@@ -120,7 +120,7 @@ class ItemDTO {
 }
 
 class MainDTO {
-  double? temp;
+  dynamic temp;
   dynamic feelslike;
   double? tempmin;
   double? tempmax;

@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_it/get_it.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:weather_app/data/datasource/region/field_remote_data_source.dart';
@@ -72,13 +73,14 @@ Future<void> init() async {
   });
 
   locator.registerLazySingleton(() {
+    final appId = dotenv.get('APP_ID');
     final dio = Dio(
         BaseOptions(
           baseUrl: 'https://api.openweathermap.org/data/2.5',
           connectTimeout: 5000,
           receiveTimeout: 3000,
           queryParameters: {
-            'appid' : 'ea0ab496bc2f4e9c0cc7af9baee579c8'
+            'appid' : appId
           }
         )
     );

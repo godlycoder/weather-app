@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:weather_app/ui/page/boarding/boarding_cubit.dart';
 import 'package:weather_app/ui/page/home/home_cubit.dart';
 import 'package:weather_app/ui/router/router.gr.dart';
@@ -7,6 +8,7 @@ import 'package:weather_app/ui/router/router.gr.dart';
 import 'injection.dart' as di;
 
 void main() async {
+  await dotenv.load();
   await di.init();
   runApp(const MyApp());
 }
